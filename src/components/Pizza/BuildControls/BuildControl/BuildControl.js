@@ -12,7 +12,7 @@ const BuildControl = (props) => {
           disabled={props.disabled}>
           Less
         </button>
-        <span className="badge badge-pill mr-2">{props.count}</span>
+        <span className="badge badge-pill mr-2">{props.count ? props.count : 0}</span>
         <button type="button" className="btn btn-primary" onClick={props.added}>
           More
         </button>

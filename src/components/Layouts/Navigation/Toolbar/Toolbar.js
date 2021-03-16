@@ -1,33 +1,63 @@
-import { Navbar, Nav, NavDropdown, Image } from "react-bootstrap";
-import pizzaShopLogo from '../../../../assets/images/logo.jpg';
+import { Navbar, Nav, Image } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import pizzaShopLogo from "../../../../assets/images/logo.png";
 const Toolbar = (props) => {
-    return ( 
-        <Navbar collapseOnSelect expand="lg" bg="secondary" variant="dark">
-            <Navbar.Brand href="#home">
-                <Image src={pizzaShopLogo} style={{ height: '40px'}}/>
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="mr-auto">
-                <Nav.Link href="#features">Features</Nav.Link>
-                <Nav.Link href="#pricing">Pricing</Nav.Link>
-                <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                </NavDropdown>
-                </Nav>
-                <Nav>
-                <Nav.Link href="#deets">More deets</Nav.Link>
-                <Nav.Link eventKey={2} href="#memes">
-                    Dank memes
-                </Nav.Link>
-                </Nav>
-            </Navbar.Collapse>
-            </Navbar>
-     );
-}
- 
+  return (
+    <Navbar collapseOnSelect expand="lg" bg="secondary" variant="dark">
+      <Navbar.Brand href="/">
+        <Image src={pizzaShopLogo} style={{ height: "40px" }} />
+        <strong><i className="text-warning">Healthy</i>  Pizza</strong>
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="mr-auto">
+          <NavLink to="/" exact activeClassName="active" className="nav-link">
+            Features
+          </NavLink>
+
+          <NavLink
+            className="nav-link"
+            activeClassName="active"
+            to={{
+              pathname: "/checkout",
+            }}
+          >
+            Checkout
+          </NavLink>
+
+          <NavLink
+            className="nav-link"
+            activeClassName="active"
+            to={{
+              pathname: "/login",
+              hash: "#submit",
+              search: "?q=myholyLife",
+            }}
+          >
+            Login
+          </NavLink>
+
+          <NavLink
+            className="nav-link"
+            activeClassName="active"
+            to={{
+              pathname: "/eyal"
+             
+            }}
+          >
+            Eyal
+          </NavLink>
+
+        </Nav>
+        <Nav>
+          <Nav.Link href="/">Login</Nav.Link>
+          <Nav.Link eventKey={2} href="/">
+            Register
+          </Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  );
+};
+
 export default Toolbar;

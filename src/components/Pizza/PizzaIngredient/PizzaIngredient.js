@@ -32,7 +32,33 @@ class PizzaIngredient extends Component {
                 ));
                 
                 
-                break;
+                    break;
+                case 'pepperonis':
+                    let pepperonis = []
+                    for (let index = 0; index < 8; index++) {
+                        pepperonis.push( 'n' + Math.floor(Math.random() * (32 - 1) + 1));
+                    }
+                
+                    ingredient = pepperonis.map( (pepperoni,index) => (
+                        <div key={index} className={[classes.pepperoni, classes[pepperoni] ].join(' ')}>
+                          
+                        </div>
+                    ));
+                    break;
+
+                    case 'green-pepper':
+                        let peppers = []
+                        for (let index = 0; index < 8; index++) {
+                            peppers.push( 'n' + Math.floor(Math.random() * (32 - 1) + 1));
+                        }
+                    
+                        ingredient = peppers.map( (pepper,index) => (
+                            <div key={index} className={[classes.greenPepper, classes[pepper] ].join(' ')}>
+                              
+                            </div>
+                        ));
+                        break;
+                    
         
             default:
                 break;

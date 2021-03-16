@@ -2,10 +2,12 @@ import React from 'react';
 import { Button, Modal } from "react-bootstrap";
 
 const UIModal = (props) => {
-    
+    console.log(props)
+    const {onOk, ...newProps} = {...props};
     return (
+        
         <Modal
-          {...props}
+          {...newProps}
           size="lg"
           centered
         >
@@ -19,7 +21,7 @@ const UIModal = (props) => {
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={props.onHide}>Close</Button>
-            <Button variant="primary" onClick={props.onSuccess} >Success</Button>
+            <Button variant="primary" onClick={props.onOk} >Success</Button>
           </Modal.Footer>
         </Modal>
       );

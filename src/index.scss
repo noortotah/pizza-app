@@ -11,3 +11,89 @@ $theme-colors: (
 
 /* import bootstrap to set changes */
 @import "~bootstrap/scss/bootstrap";
+
+.footer {
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+}
+
+// #personal_info {
+//   first_name: 'Noor';
+//   last_name: 'Totah';
+//   telephone: '0528067519';
+//   email: 'noor.totah.91@gmail.com';
+//   personal_website: 'https://noortotah.com'
+// }
+
+// :root {
+//   --html: '</>';
+//   --css: '.#@!';
+//   --javascript: 'jQuery, Ajax, Typescript';
+//   --php : 'Laravel'
+//  }
+
+// $noor-skills: (
+//  front_end: (
+//    'best' : 'Bootstrap',
+//    'better' : 'Angular',
+//    'good' :  'React'
+//  ),
+//  back_end: (
+//   'better' : 'php/Laravel',
+//   'good' : 'Nodejs/Expressjs'
+//  )
+// );
+
+// @each $skill-key, $skill-value in $noor-skills {
+//     @if $skill-key == back_end {
+//       .noor-fill-#{skill-key}-list {
+//         rest_api : 80%;
+//         mysql_database : 80%;
+//         heroku : 80%;
+//         firebase: 60%;
+//       }
+//     } @else {
+//       .noor-fill-#{skill-key}-list {
+//         angular2+ : 70%;
+//         reactJs : 30%;
+//         jQuery : 50%;
+//         Ajax : 70%;
+
+//       }
+//     }
+// }
+
+// h1 {
+//   preferred: var(--javascript);
+// }
+
+// $personal_skills = 'self-learner', 'hard-worker',
+//                    'team-worker', 'skilled-developer',
+//                    'reliable-and-dependable', 'problem-solver'
+//                    'I-dont-even-work-under-pressure';
+                   
+// @function noor($personal_skills...) {
+//   $noor: 0;
+//   @each $skill in $personal_skills {
+//     $noor: $noor + $skill;
+//   }
+//   @return $noor;
+// }
+
+
+// $languages: (
+//   "primary": "Arabic",
+//   "secondary": "English",
+//   "danger": "hebrew"
+// );
+
+
+// @function noor-language-level($language-name: "primary") {
+//   $index: index(languages,$language-name);
+//   $minus: 15 * $index;
+//   $level: 100 - $minus;
+
+//   @return mix($language-name, $level);
+// }
