@@ -1,42 +1,80 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { connect } from 'react-redux';
+import { authorize_user } from '../../store/actions/authAction';
 
-class LoginForm extends Component {
-  state = { 
-    errors : {}
-   }
+const LoginForm = (props) => {
+  const { register, handleSubmit , errors} = useForm();
 
-  loginHandler = (event) => {
-    event.preventDefault();
-    console.log(event);
+
+  const loginHandler = (data) => {
+    console.log(data);
+    props.$authorizeUser(data);
+
   }
-  render() { 
     return ( 
       <div className="col-md-6 m-auto pt-5 pb-5">
-        <form onSubmit={this.loginHandler}>
+        <form onSubmit={handleSubmit(loginHandler)}>
           <div className="form-group">
             <label htmlFor="email">Email address</label>
-            <input type="email" name="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" />
-            {this.state.errors.email && <small id="emailHelp" className="form-text text-muted">
-              Email that you have used while registration.
+            <input
+              type="email"
+              className="form-control"
+              name="email"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+              defaultValue=""
+              ref={register({
+                  required: "required",
+                  pattern: {
+                    value: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+                    message: "Entered value does not match email format"
+                  }
+                })} />
+                
+            {errors.email && <small id="emailHelp" className="form-text text-muted">
+              {errors.email.message}
             </small>}
           </div>
           <div className="form-group">
             <label htmlFor="password">Password</label>
-            <input type="password" name="password" className="form-control" id="password" placeholder="Password" />
+            <input
+              type="password"
+              className="form-control"
+              name="password"
+              placeholder="Password"
+              defaultValue=""
+              ref={register(
+                {
+                  required: "required",
+                  minLength: {
+                    value: 5,
+                    message: "min length is 5"
+                  }
+                }
+              )} />
+              {errors.password && <small id="emailHelp" className="form-text text-muted">
+              {errors.password.message}
+            </small>}
           </div>
-          <div className="form-check">
-            <input type="checkbox" name="checkbox" className="form-check-input" id="remember" />
-            <label className="form-check-label" htmlFor="remember">
-              Remember me
-            </label>
-          </div>
+          
           <button type="submit" className="btn btn-primary float-right">
             Login
           </button>
         </form>
       </div>
      );
+}
+const mapStateToProps  = (state) => {
+  return {
+
   }
 }
- 
-export default LoginForm;
+
+const mapDispatchToProps  = (dispatch) => {
+  return  {
+    $authorizeUser : (userData) => dispatch(authorize_user(userData))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm) ;

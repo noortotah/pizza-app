@@ -42,8 +42,7 @@ class  Eyal extends Component {
               
 
                     <Container>
-                        <Row>
-                            
+                        <Row>         
                             <Col md={6} className="mx-auto">
                             {this.state.isLoading && <h3 className="mx-auto">Loading ... </h3>}
                             {! this.state.isLoading && 
